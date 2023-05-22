@@ -8,6 +8,11 @@ const {
 
 async function dropTables() {
   // Drop all tables in order
+  try {
+    await client.query("DROP TABLE IF EXISTS users");
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 async function createTables() {
